@@ -15,6 +15,8 @@ public class Conexion {
         Connection conexion = null;
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
             conexion = DriverManager.getConnection(
                     URL,
                     USUARIO,
@@ -23,7 +25,7 @@ public class Conexion {
 
             System.out.println("Conexion exitosa con la base de datos Soulence.");
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println("Error al conectar con la base de datos.");
             System.out.println(e.getMessage());
         }
